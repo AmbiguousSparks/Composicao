@@ -41,11 +41,10 @@ namespace Composition.Entities
 
         public double Income ( int year, int month )
         {
-            List<HourContract> contracts = Contracts.FindAll(x => x.Date.Year == year && x.Date.Month == month);
 
             double totalSalary = BaseSalary;
 
-            foreach (HourContract contract in contracts)
+            foreach (HourContract contract in Contracts.FindAll(x => x.Date.Year == year && x.Date.Month == month))
             {
                 totalSalary += contract.TotalValue();
             }
@@ -59,7 +58,7 @@ namespace Composition.Entities
             return "Name: "
                 + Name
                 + "\nDepartment: "
-                + Department;
+                + Department.Name;
         }
     }
 }
