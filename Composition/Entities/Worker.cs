@@ -15,9 +15,14 @@ namespace Composition.Entities
 
         public double BaseSalary { get; set; }
 
-        public List<HourContract> Contracts { get; private set; }
+        public List<HourContract> Contracts { get; set; }
 
         public Department Department { get; set; }
+
+        public Worker ()
+        {
+            Contracts = new List<HourContract>();
+        }
 
         public void AddContract ( HourContract contract )
         {

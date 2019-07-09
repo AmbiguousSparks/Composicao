@@ -39,7 +39,7 @@ namespace Composition
 
             int numContracts = int.Parse(Console.ReadLine());
 
-            List<HourContract> contracts = new List<HourContract>();
+            Worker worker = new Worker { Name = name, Level = wl, Department = dp, BaseSalary = baseSalary };
 
             for (int i = 0; i < numContracts; i++)
             {
@@ -60,17 +60,13 @@ namespace Composition
 
                 HourContract contract = new HourContract { Date = date, ValuePerHour = valuePerHour, Hours = duration };
 
-                contracts.Add(contract);
+                worker.AddContract(contract);
 
             }
 
             Console.Write("Enter month and year to calculate income (MM/YYYY): ");
 
             string[] dateIncome = Console.ReadLine().Split('/');
-
-            Worker worker = new Worker { Name = name, Level = wl, Department = dp, BaseSalary = baseSalary };
-
-            worker.AddContract(contracts);
 
             Console.WriteLine("\n" + worker + "\nIncome for " + dateIncome[0] + "/" + dateIncome[1] + ": " +
                 worker.Income(int.Parse(dateIncome[1]), int.Parse(dateIncome[0])));
