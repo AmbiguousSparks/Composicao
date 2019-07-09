@@ -69,7 +69,7 @@ namespace Composition
             string[] dateIncome = Console.ReadLine().Split('/');
 
             Console.WriteLine("\n" + worker + "\nIncome for " + dateIncome[0] + "/" + dateIncome[1] + ": " +
-                worker.Income(int.Parse(dateIncome[1]), int.Parse(dateIncome[0])));
+                worker.Income(int.Parse(dateIncome[1]), int.Parse(dateIncome[0])).ToString("F2",CultureInfo.InvariantCulture));
 
         }
     }
